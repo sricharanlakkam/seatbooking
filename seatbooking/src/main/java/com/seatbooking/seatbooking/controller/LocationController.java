@@ -38,15 +38,4 @@ public class LocationController {
 		repo.save(location);
 		return location;
 	}
-	/*@DeleteMapping("/delete_loc/{officeLocation}")
-    public Map<String, Boolean> deleteLocation(@PathVariable(value = "officeLocation") String officeLocation)
-         throws AttributeNotFoundException {
-		Location  location = 	repo.findByOfficeLocation(officeLocation).orElseThrow(() -> new AttributeNotFoundException("Location not found :: " + officeLocation));
-
-    	repo.deleteLocation(location);
-        Map<String ,Boolean> response = new HashMap<>();
-        response.put("deleted", Boolean.TRUE);
-        return response;
-    }*/
-	
 }

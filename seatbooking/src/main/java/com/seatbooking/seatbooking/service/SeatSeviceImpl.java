@@ -42,9 +42,8 @@ public class SeatSeviceImpl implements SeatService {
 		return false;
 	}
 
-@Override
-public boolean updateSeat(int bookingNumber, int seatNumber) {
-// TODO Auto-generated method stub
-return false;
+	@Override
+	public void updateSeat(Seat seat) {
+	
 }
 }

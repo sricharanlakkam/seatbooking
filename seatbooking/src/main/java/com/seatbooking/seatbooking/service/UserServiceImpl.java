@@ -76,9 +76,12 @@ public class UserServiceImpl implements UserService {
 		return false;
 
 	}
-
+	int temp;
 	@Override
-	public boolean swapRequest() {
+	public boolean swapRequest(int id1,int id2) {
+		temp=id1;
+		id1=id2;
+		id2=temp;
 		return false;
 	}
 }

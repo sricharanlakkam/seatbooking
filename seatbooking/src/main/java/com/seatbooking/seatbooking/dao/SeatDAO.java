@@ -2,9 +2,11 @@ package com.seatbooking.seatbooking.dao;
 
 import java.util.List;
 
+import org.springframework.data.repository.CrudRepository;
+
 import com.seatbooking.seatbooking.entity.Seat;
 
-public interface SeatDAO {
+public interface SeatDAO extends CrudRepository<Seat, Integer> {
 
 	static boolean CreateSeat(Seat seat) {
 		// TODO Auto-generated method stub
@@ -37,6 +39,15 @@ public interface SeatDAO {
 	void delete(Seat p);
 
 	Seat getSeat();
+
+	Object getRemainingSeat();
+
+	void setRemainingSeat(int remainingSeat);
+
+	void setRemainingSeat(Object remainingSeat);
+
+	Seat findBySeatNumber(String seatNumber);
+
 
 
 }

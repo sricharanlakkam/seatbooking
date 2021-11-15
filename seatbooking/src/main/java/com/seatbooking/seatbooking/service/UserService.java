@@ -12,7 +12,7 @@ public interface UserService {
 	boolean modifyUser(User user);
 	boolean resetPassword(String emailId,String newPassword);
 	boolean searchSeatStatus(String seatStatus);
-	boolean swapRequest();
+	public boolean swapRequest(int id1,int id2);
 	boolean searchSeat();
 	
 

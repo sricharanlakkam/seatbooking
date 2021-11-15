@@ -40,4 +40,9 @@ public class Seat {
 	public void setSeatRequest(String seatRequest) {
 		this.seatRequest = seatRequest;
 	}
+
+	public int getRemainingSeat() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }

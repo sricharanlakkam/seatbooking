@@ -10,6 +10,6 @@ public interface SeatService {
 public boolean checkSeatAvailability(int seatNumber, String seatStatus);
 public boolean bookSeat(Booking booking);
 public boolean cancelSeat(int bookingNumber);
-public boolean updateSeat(int bookingNumber,int seatNumber);
+public void updateSeat(Seat seat);
 
 }

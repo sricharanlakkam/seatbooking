@@ -4,7 +4,8 @@ import javax.persistence.Id;
 @Entity
 public class User {
 	@Id
-	int id;
+	int id1;
+	int id2;
 	private String userName;
 	private String password;
 	private String firstName;
@@ -13,7 +14,8 @@ public class User {
 
 	public User() {
 		super();
-		this.id = id;
+		this.id1 = id1;
+		this.id2 = id2;
 		this.userName = userName;
 		this.password = password;
 		this.firstName = firstName;
@@ -21,12 +23,19 @@ public class User {
 		this.email = email;
 	}
 
-	public int getId() {
-		return id;
+	public int getId1() {
+		return id1;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setId1(int id1) {
+		this.id1 = id1;
+	}
+	public int getId2() {
+		return id2;
+	}
+
+	public void setId2(int id2) {
+		this.id2 = id2;
 	}
 
 	public String getUserName() {
@@ -70,7 +79,7 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", userName=" + userName + ", password=" + password + ", firstName=" + firstName
+		return "User [id1=" + id1+ ",id2=" + id2+ ", userName=" + userName + ", password=" + password + ", firstName=" + firstName
 				+ ", lastName=" + lastName + ", email=" + email + "]";
 	}
 }

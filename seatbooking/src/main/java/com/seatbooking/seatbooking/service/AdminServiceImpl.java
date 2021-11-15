@@ -1,7 +1,7 @@
 package com.seatbooking.seatbooking.service;
 
-import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.kafka.KafkaProperties.Admin;
 import org.springframework.stereotype.Service;
 
 import com.seatbooking.seatbooking.dao.AdminDAO;
@@ -15,37 +15,31 @@ public class AdminServiceImpl implements AdminService {
 	private AdminDAO admindao;
 
 	@Override
-	public List<User> getAllUser() {
-// TODO Auto-generated method stub
+	public Iterable<Admin> getAllUser() {
 		return admindao.findAll();
 	}
 
 	@Override
-	public void saveUser(User user) {
-// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void deleteUserbyId(int id) {
-// TODO Auto-generated method stub
+	public void deleteUser(int id) {
+		 admindao.deleteById(id);
 
 	}
 
 	@Override
 	public void updateLocation(Location location) {
-// TODO Auto-generated method stub
+		admindao.save(location);
 
 	}
 
 	@Override
 	public void updateOfficeLocation(String officeLocation) {
-// TODO Auto-generated method stub
+		
 
 	}
 
 	@Override
 	public void manageBooking(Booking booking) {
+		
 
 	}
 

@@ -1,9 +1,9 @@
 package com.seatbooking.seatbooking.service;
 
 public interface LocationService {
-	public void updateLocation();
-	public void deleteLocation();
-	public void addLocation();
+	public void updateLocation(String officeLocation);
+	public void deleteLocation(String officeLocation);
+	public void addLocation(String officename);
 	
 	
 
