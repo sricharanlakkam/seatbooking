@@ -1,7 +1,5 @@
 package com.seatbooking.seatbooking.dao;
 
-
-
 import java.util.List;
 
 import com.seatbooking.seatbooking.entity.Seat;
@@ -28,8 +26,17 @@ public interface SeatDAO {
 		return null;
 	}
 
-	
+	List<Seat> getAllSeats();
 
+	List<Seat> findAll();
+
+	Seat save(Seat seat);
+
+	Seat getOne(int seat);
+
+	void delete(Seat p);
+
+	Seat getSeat();
 
 
 }

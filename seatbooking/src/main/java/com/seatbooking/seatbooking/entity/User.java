@@ -11,7 +11,7 @@ public class User {
 	private String lastName;
 	private String email;
 
-	public User(int id, String userName, String password, String firstName, String lastName, String email) {
+	public User() {
 		super();
 		this.id = id;
 		this.userName = userName;

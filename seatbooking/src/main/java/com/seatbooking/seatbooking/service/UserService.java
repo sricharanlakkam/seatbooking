@@ -6,14 +6,14 @@ import com.seatbooking.seatbooking.entity.User;
 public interface UserService {
 	
 
-	public boolean addUser(User user);
-	public boolean modifyUser(User user);
-	public boolean verifyEmail(String emailId);
-	public boolean checkLogin(String emailId, String password);
-	public boolean checkSeat(Seat seatStatus);
-	public boolean resetPassword(String password);
-	public boolean swapSeat(int seatNumber);
-	
+	boolean checkLogin(String emailId,String password);
+	boolean checkIfUserExists(String emailId);
+	boolean registerUser(User user);
+	boolean modifyUser(User user);
+	boolean resetPassword(String emailId,String newPassword);
+	boolean searchSeatStatus(String seatStatus);
+	boolean swapRequest();
+	boolean searchSeat();
 	
 
 

@@ -1,60 +1,84 @@
 package com.seatbooking.seatbooking.service;
 
-import com.seatbooking.seatbooking.dao.SeatDAO;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.seatbooking.seatbooking.dao.UserDAO;
-import com.seatbooking.seatbooking.entity.Seat;
 import com.seatbooking.seatbooking.entity.User;
 
+@Service
 public class UserServiceImpl implements UserService {
 
+	@Autowired
+	private UserDAO userdao;
+
 	@Override
-	public boolean addUser(User user) {
-		UserDAO.addUser(user);
-		System.out.println("Deadpool");
+	public boolean checkLogin(String emailId, String password) {
+
+		User user = UserDAO.getUser(emailId);
+		if (user != null) {
+			String userPass = user.getPassword();
+			if (userPass.equals(password))
+				return true;
+			else
+				return false;
+		} else
+			return false;
+	}
+
+	@Override
+	public boolean checkIfUserExists(String emailId) {
+
+		User user = UserDAO.getUser(emailId);
+		if (user != null) {
+			return false;
+		} else
+			return true;
+	}
+
+	@Override
+	public boolean registerUser(User user) {
+
+		userdao.addUser(user);
+		System.out.println("Registered");
 		return false;
 	}
 
 	@Override
 	public boolean modifyUser(User user) {
-		// TODO Auto-generated method stub
+
 		return false;
 	}
 
 	@Override
-	public boolean verifyEmail(String emailId) {
+	public boolean resetPassword(String emailId, String newPassword) {
+
 		User user = UserDAO.getUser(emailId);
-		if (user != null)
+		if (user != null) {
+			user.setPassword(newPassword);
+			return UserDAO.modifyUser(user);
+		}
+		return true;
+	}
+
+	@Override
+	public boolean searchSeatStatus(String seatStatus) {
+		if (seatStatus.equals("green")) {
+			return true;
+		} else if (seatStatus.equals("grey"))
 			return false;
 		else
-			return true;
-	}
-
-
-
-
-
-	@Override
-	public boolean resetPassword(String password) {
-		// TODO Auto-generated method stub
-		return false;
+			return false;
 	}
 
 	@Override
-	public boolean swapSeat(int seatNumber) {
-		// TODO Auto-generated method stub
+	public boolean searchSeat() {
 		return false;
+
 	}
 
 	@Override
-	public boolean checkLogin(String emailId, String password) {
-		// TODO Auto-generated method stub
+	public boolean swapRequest() {
 		return false;
 	}
-
-	@Override
-	public boolean checkSeat(Seat seatStatus) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
 }

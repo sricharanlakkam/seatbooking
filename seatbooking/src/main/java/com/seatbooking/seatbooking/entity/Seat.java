@@ -1,6 +1,11 @@
 package com.seatbooking.seatbooking.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Seat {
+	@Id
 	private int seatNumber;
 	private String seatStatus;
 	private String seatRequest;

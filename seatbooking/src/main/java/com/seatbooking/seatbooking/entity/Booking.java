@@ -3,9 +3,11 @@ package com.seatbooking.seatbooking.entity;
 import java.sql.Time;
 import java.util.Date;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 
 @Entity
 public class Booking {
+@Id
 	private long bookingNumber;
 	private Date bookingDate;
 	private Time bookingDuration;

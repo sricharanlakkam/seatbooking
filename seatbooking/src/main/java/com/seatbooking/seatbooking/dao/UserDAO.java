@@ -1,8 +1,10 @@
 package com.seatbooking.seatbooking.dao;
 
+
 import java.util.List;
 
 import org.springframework.data.repository.CrudRepository;
+
 
 import com.seatbooking.seatbooking.entity.User;
 
@@ -23,7 +25,7 @@ public interface UserDAO extends CrudRepository<User ,Integer>{
 		return null;
 	}
 
-	static boolean addUser(User user) {
+	  default boolean addUser(User u) {
 		// TODO Auto-generated method stub
 		return false;
 	}
@@ -37,5 +39,11 @@ public interface UserDAO extends CrudRepository<User ,Integer>{
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	List<User> getAllUser();
+
+	void save(String password);
+
+
 
 }

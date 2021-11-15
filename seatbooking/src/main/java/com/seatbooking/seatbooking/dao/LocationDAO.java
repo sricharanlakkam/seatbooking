@@ -15,5 +15,15 @@ public interface LocationDAO {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	List<Location> findAll();
+
+	void save(Location location);
+
+	Object findByOfficeLocation(String officeLocation);
+
+	void deleteLocation(Location location);
+
+	Object findByOfficeLocation();
 	
 }
