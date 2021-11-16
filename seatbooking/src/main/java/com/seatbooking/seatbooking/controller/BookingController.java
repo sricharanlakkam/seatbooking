@@ -13,29 +13,29 @@ import org.springframework.web.bind.annotation.RestController;
 import com.seatbooking.seatbooking.dao.BookingDAO;
 import com.seatbooking.seatbooking.entity.Booking;
 import com.seatbooking.seatbooking.entity.User;
+import com.seatbooking.seatbooking.service.BookingService;
 @RestController
 public class BookingController {
 
 	@Autowired
-	BookingDAO repo;
+	BookingService bookingService;
 	
-	
+
 	@GetMapping("/viewbooking")
-	public List<User> viewBooking() {
-		return repo.viewBooking();
+	public boolean viewBooking(Booking booking) {
+		return bookingService.viewBooking(booking);
 	}
 
 	@PostMapping("/bookSeat")
-	public Booking createbook(@RequestBody Booking user) {
-		return this.repo.save(user);
+	public boolean createbook(@RequestBody Booking booking) {
+		return this.bookingService.saveBooking(booking);
 
 	}
 
 	@DeleteMapping("/cancel_booking/{bookingNumber}")
-	public String delete(@PathVariable("bookingNumber") int bookingNumber) {
-		Booking p = repo.getOne(bookingNumber);
-		repo.delete(p);
-		return "Deleted User Details";
+	public boolean delete(@PathVariable("bookingNumber") int bookingNumber) {
+		return bookingService.deleteByBookingNumber(bookingNumber);
+		
 	}
 
 }

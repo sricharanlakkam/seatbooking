@@ -16,14 +16,16 @@ import com.seatbooking.seatbooking.dao.SeatDAO;
 import com.seatbooking.seatbooking.dao.UserDAO;
 import com.seatbooking.seatbooking.entity.Seat;
 import com.seatbooking.seatbooking.entity.User;
+import com.seatbooking.seatbooking.service.SeatService;
+import com.seatbooking.seatbooking.service.UserService;
 
 @RestController
 public class UserController {
 
 	@Autowired
-	private UserDAO userRepository;
+	private UserService userService;
 	@Autowired
-	SeatDAO seatdao;
+	SeatService seatService;
 
 	@GetMapping("/getuser")
 	public List<User> getAllUser() {

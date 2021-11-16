@@ -10,7 +10,7 @@ import com.seatbooking.seatbooking.entity.User;
 
 public interface BookingDAO extends CrudRepository<User, Integer> {
 
-	public Booking save(Booking user);
+	public Booking save(Booking booking);
 
 	public void delete(Booking p);
 
@@ -23,5 +23,7 @@ public interface BookingDAO extends CrudRepository<User, Integer> {
 	public Booking findByBookingNumber(long bookingNumber);
 
 	public void deleteByBookingNumber(long bookingNumber);
+
+	 
 
 }

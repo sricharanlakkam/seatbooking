@@ -1,5 +1,7 @@
 package com.seatbooking.seatbooking.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -84,5 +86,10 @@ public class UserServiceImpl implements UserService {
 		id1=id2;
 		id2=temp;
 		return false;
+	}
+
+	@Override
+	public void getAllUser() {
+		userdao.getUser();
 	}
 }

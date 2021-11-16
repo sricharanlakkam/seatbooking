@@ -80,5 +80,39 @@ public class BookingServiceImpl implements BookingService{
 		
 	}
 
+
+
+	@Override
+	public boolean viewBooking(Booking booking) {
+		bookingDao.save(booking);
+		return true;
+	}
+
+
+
+	@Override
+	public boolean saveBooking(Booking booking) {
+		bookingDao.save(booking);
+		return true;
+	}
+
+
+
+	@Override
+	public boolean getBooking(int bookingNumber) {
+		bookingDao.getOne(bookingNumber);
+		return false;
+	}
+
+
+
+	@Override
+	public boolean deleteByBookingNumber(int bookingNumber) {
+		bookingDao.deleteByBookingNumber(bookingNumber);
+		return false;
+	}
+
+
+
 	
 }

@@ -22,6 +22,7 @@ public interface AdminService {
 		void viewBooking();
 		void cancelBooking(long bookingNumber);
 		public void add(User user);
+		public void saveLocation(Location location);
 
 
 	

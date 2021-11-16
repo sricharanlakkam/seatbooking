@@ -21,6 +21,7 @@ public interface AdminDAO extends CrudRepository<Admin, Integer>  {
 
 	void deleteById(long bookingNumber);
 	
+	
 
 
 }

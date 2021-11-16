@@ -12,27 +12,28 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.seatbooking.seatbooking.dao.SeatDAO;
 import com.seatbooking.seatbooking.entity.Seat;
+import com.seatbooking.seatbooking.service.SeatService;
 
 @RestController
 public class SeatController {
 
 	@Autowired
-	private SeatDAO seatdao;
+	private SeatService seatService;
 
 	@GetMapping("/getseat")
 	public List<Seat> getAllSeat() {
-		return this.seatdao.findAll();
+		return this.seatService.findAll();
 	}
 
 	@PostMapping("/addseat")
 	public Seat createUser(@RequestBody Seat seat) {
-		return this.seatdao.save(seat);
+		return this.seatService.save(seat);
 	}
 
 	@DeleteMapping("/deleteseat")
 	public String delete(@PathVariable("seatNumber") int seatNumber) {
-		Seat p = seatdao.getOne(seatNumber);
-		seatdao.delete(p);
+		Seat p = seatService.getOne(seatNumber);
+		seatService.delete(p);
 		return "Deleted User Details";
 	}
 

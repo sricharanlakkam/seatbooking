@@ -68,4 +68,10 @@ public class AdminServiceImpl implements AdminService {
 		admindao.save(user);
 
 	}
+
+	@Override
+	public void saveLocation(Location location) {
+		admindao.save(location);
+		
+	}
 }

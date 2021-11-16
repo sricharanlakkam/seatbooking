@@ -12,30 +12,30 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.seatbooking.seatbooking.dao.LocationDAO;
 import com.seatbooking.seatbooking.entity.Location;
-@Configuration
+import com.seatbooking.seatbooking.service.LocationService;
 @RestController
 @RequestMapping("/api/User")
 public class LocationController {
 
 	@Autowired
-	LocationDAO repo;
+	LocationService locationService;
 
 	@RequestMapping("/all_loc")
 	@ResponseBody
 	public List<Location> getloc() {
 
-		return repo.findAll();
+		return locationService;
 	}
 
 	@PostMapping("/add_loc")
 	public Location home1(Location location) {
-		repo.save(location);
+		locationService.save(location);
 		return location;
 	}
 
 	@PutMapping("/modify_loc")
 	public Location update(Location location) {
-		repo.save(location);
+		locationService.save(location);
 		return location;
 	}
 }
