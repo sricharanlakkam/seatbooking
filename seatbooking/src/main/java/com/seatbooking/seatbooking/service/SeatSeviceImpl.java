@@ -30,20 +30,18 @@ public class SeatSeviceImpl implements SeatService {
 	}
 
 	@Override
-	public boolean bookSeat(Booking booking) {
-// TODO Auto-generated method stub
-
-		return false;
+	public void bookSeat(Seat seat) {
+		seatDao.save(seat);
 	}
 
 	@Override
-	public boolean cancelSeat(int bookingNumber) {
-// TODO Auto-generated method stub
-		return false;
+	public void cancelSeat(int bookingNumber) {
+		seatDao.deleteById(bookingNumber);
 	}
 
 	@Override
 	public void updateSeat(Seat seat) {
-	
-}
+		seatDao.save(seat);
+
+	}
 }

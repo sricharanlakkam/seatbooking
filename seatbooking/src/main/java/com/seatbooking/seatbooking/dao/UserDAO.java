@@ -10,39 +10,26 @@ import com.seatbooking.seatbooking.entity.User;
 
 public interface UserDAO extends CrudRepository<User ,Integer>{
 
-	static boolean modifyUser(User user) {
-		// TODO Auto-generated method stub
+	 static boolean modifyUser(User user) {
+		
 		return false;
 	}
+	 boolean deleteUser(User user);
 
-	static boolean deleteUser(User user) {
-		// TODO Auto-generated method stub
-		return false;
-	}
+	 List<User> getAllUserDetails();
 
-	static List<User> getAllUserDetails() {
+	  boolean addUser(User u);
+
+	 User getUser();
+
+	 public static User getUser(String emailId) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-	  default boolean addUser(User u) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	static User getUser() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	static User getUser(String emailId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 	List<User> getAllUser();
 
 	void save(String password);
+	void getSeat();
 
 
 

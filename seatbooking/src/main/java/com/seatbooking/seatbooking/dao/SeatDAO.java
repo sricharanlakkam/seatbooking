@@ -8,26 +8,12 @@ import com.seatbooking.seatbooking.entity.Seat;
 
 public interface SeatDAO extends CrudRepository<Seat, Integer> {
 
-	static boolean CreateSeat(Seat seat) {
-		// TODO Auto-generated method stub
-		return false;
-	}
+	 boolean CreateSeat(Seat seat);
 
-	static boolean cancelSeat(Seat seat) {
-		// TODO Auto-generated method stub
-		return false;
-	}
+	 boolean cancelSeat(Seat seat);
 
-	static List<Seat> getAllSeatDetails(Seat seat) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	static Seat getSeat(Seat seatStatus) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
+	 List<Seat> getAllSeatDetails(Seat seat);
+	 Seat getSeat(Seat seatStatus);
 	List<Seat> getAllSeats();
 
 	List<Seat> findAll();

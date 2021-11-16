@@ -17,6 +17,9 @@ public interface AdminDAO extends CrudRepository<Admin, Integer>  {
 	List<User> save(User user);
 
 	void deleteById(int id);
+	void save(String officeLocation);
+
+	void deleteById(long bookingNumber);
 	
 
 

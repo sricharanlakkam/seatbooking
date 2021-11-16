@@ -33,38 +33,39 @@ public class AdminServiceImpl implements AdminService {
 
 	@Override
 	public void updateOfficeLocation(String officeLocation) {
-		
-
-	}
-
-	@Override
-	public void manageBooking(Booking booking) {
+		admindao.save(officeLocation);
 		
 
 	}
 
 	@Override
 	public void approveSeat() {
+		admindao.notify();
 
 	}
 
 	@Override
 	public void rejectSeat() {
+		admindao.notify();
 
 	}
 
 	@Override
 	public void viewBooking() {
+		admindao.findAll();
+	
 
 	}
 
 	@Override
-	public void cancelBooking() {
+	public void cancelBooking(long bookingNumber) {
+		admindao.deleteById(bookingNumber);
 
 	}
 
 	@Override
 	public void add(User user) {
+		admindao.save(user);
 
 	}
 }

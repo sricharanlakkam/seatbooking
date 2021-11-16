@@ -73,6 +73,7 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public boolean searchSeat() {
+		userdao.getSeat();
 		return false;
 
 	}

@@ -14,9 +14,8 @@ public class AdminController {
 	AdminDAO repo;
 
 	@PostMapping("/add_admin")
-	public Admin home1(Admin location) {
+	public void home1(Admin location) {
 		repo.save(location);
-		return location;
 	}
 	
 	

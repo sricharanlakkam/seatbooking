@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import com.seatbooking.seatbooking.dao.LocationDAO;
 
 @Service
+
 public class LocationServiceImpl implements LocationService{
 	
 	@Autowired

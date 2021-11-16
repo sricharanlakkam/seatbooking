@@ -8,8 +8,8 @@ import com.seatbooking.seatbooking.entity.Seat;
 
 public interface SeatService {
 public boolean checkSeatAvailability(int seatNumber, String seatStatus);
-public boolean bookSeat(Booking booking);
-public boolean cancelSeat(int bookingNumber);
+public void bookSeat(Seat seat);
+public void cancelSeat(int bookingNumber);
 public void updateSeat(Seat seat);
 
 }
