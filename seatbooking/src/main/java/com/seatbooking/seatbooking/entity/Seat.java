@@ -1,14 +1,16 @@
 package com.seatbooking.seatbooking.entity;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
 @Entity
-@Table(name="Seat")
-public class Seat {
+
+public class Seat implements Serializable {
+	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int seatNumber;
@@ -46,8 +48,5 @@ public class Seat {
 		this.seatRequest = seatRequest;
 	}
 
-	public int getRemainingSeat() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-}
+		}
+

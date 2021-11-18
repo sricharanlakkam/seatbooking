@@ -1,6 +1,7 @@
 package com.seatbooking.seatbooking.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -31,10 +32,10 @@ public class BookingServiceImpl implements BookingService{
 
 
 	@Override
-	public boolean cancelSeat(long bookingNumber) {
-		Booking booking = bookingDao.findByBookingNumber(bookingNumber);
-		if (booking != null) {
-			bookingDao.deleteByBookingNumber(bookingNumber);
+	public boolean cancelBooking(int bookingNumber) {
+		Optional<Booking> booking = bookingDao.findById(bookingNumber);
+		if (booking.isPresent()) {
+			bookingDao.deleteById(bookingNumber);
 			return true;
 		}
 		return false;
@@ -42,9 +43,9 @@ public class BookingServiceImpl implements BookingService{
 	}
 
 	@Override
-	public boolean checkSeatAvailability(String seatStatus, String seatNumber) {
-		Seat seat = seatDao.findBySeatNumber(seatNumber);
-		if (seat != null) {
+	public boolean checkSeatAvailability(String seatStatus, int seatNumber) {
+		Optional<Seat> seat = seatDao.findById(seatNumber);
+		if (seat.isPresent()) {
 			if (seatStatus.equals("Green")) {
 				return true;
 			}
@@ -61,9 +62,9 @@ public class BookingServiceImpl implements BookingService{
 
 	}
 
-	@Override
-	public boolean updateSeat(String seatStatus, String seatNumber) {
-		Seat seat = seatDao.findBySeatNumber(seatNumber);
+	//@Override
+	/*public boolean updateSeat(String seatStatus, int seatNumber) {
+	//	Seat seat = seatDao.save(seatNumber);
 		if (seat != null) {
 			if (seatStatus.equalsIgnoreCase("Green")) {
 				seatDao.save(seat);
@@ -78,7 +79,7 @@ public class BookingServiceImpl implements BookingService{
 		}
 		return false;
 		
-	}
+	}*/
 
 
 
@@ -92,7 +93,7 @@ public class BookingServiceImpl implements BookingService{
 
 	@Override
 	public boolean saveBooking(Booking booking) {
-		bookingDao.save(booking);
+		 bookingDao.save(booking);
 		return true;
 	}
 
@@ -100,7 +101,7 @@ public class BookingServiceImpl implements BookingService{
 
 	@Override
 	public boolean getBooking(int bookingNumber) {
-		bookingDao.getOne(bookingNumber);
+		bookingDao.findById(bookingNumber);
 		return false;
 	}
 
@@ -108,7 +109,15 @@ public class BookingServiceImpl implements BookingService{
 
 	@Override
 	public boolean deleteByBookingNumber(int bookingNumber) {
-		bookingDao.deleteByBookingNumber(bookingNumber);
+		bookingDao.deleteById(bookingNumber);
+		return false;
+	}
+
+
+
+	@Override
+	public boolean modifySeat(String seatStatus, int seatNumber) {
+     bookingDao.findById(seatNumber);
 		return false;
 	}
 

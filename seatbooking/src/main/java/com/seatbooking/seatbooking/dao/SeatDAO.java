@@ -1,38 +1,18 @@
 package com.seatbooking.seatbooking.dao;
 
-import java.util.List;
-
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
+import com.seatbooking.seatbooking.entity.Booking;
 import com.seatbooking.seatbooking.entity.Seat;
-
+@Repository
 public interface SeatDAO extends CrudRepository<Seat, Integer> {
+ 
+	@Query(value="SELECT * FROM BOOKING WHERE id=bookingId", nativeQuery=true)
+	public Seat findBySeatNumber(int seatNumber);
 
-	 boolean CreateSeat(Seat seat);
 
-	 boolean cancelSeat(Seat seat);
-
-	 List<Seat> getAllSeatDetails(Seat seat);
-	 Seat getSeat(Seat seatStatus);
-	List<Seat> getAllSeats();
-
-	List<Seat> findAll();
-
-	Seat save(Seat seat);
-
-	Seat getOne(int seat);
-
-	void delete(Seat p);
-
-	Seat getSeat();
-
-	Object getRemainingSeat();
-
-	void setRemainingSeat(int remainingSeat);
-
-	void setRemainingSeat(Object remainingSeat);
-
-	Seat findBySeatNumber(String seatNumber);
 
 
 

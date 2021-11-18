@@ -1,6 +1,7 @@
 package com.seatbooking.seatbooking.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,14 +17,14 @@ public class SeatSeviceImpl implements SeatService {
 
 	public boolean checkSeatAvailability(int seatNumber, String seatStatus) {
 
-		Seat s = seatDao.getSeat();
-		if (s != null) {
+		Optional<Seat> s = seatDao.findById(seatNumber);
+		if (s.isPresent()) {
 
 			if (seatStatus.equals("green")) {
 
-				return false;
-			} else
 				return true;
+			} else
+				return false;
 
 		}
 		return false;
@@ -35,8 +36,8 @@ public class SeatSeviceImpl implements SeatService {
 	}
 
 	@Override
-	public void cancelSeat(int bookingNumber) {
-		seatDao.deleteById(bookingNumber);
+	public void cancelSeat(int seatNumber) {
+		seatDao.deleteById(seatNumber);
 	}
 
 	@Override
@@ -44,4 +45,20 @@ public class SeatSeviceImpl implements SeatService {
 		seatDao.save(seat);
 
 	}
+
+	@Override
+	public List<Seat> getAllSeat() {
+		seatDao.findAll();
+		return null;
+	}
+
+	@Override
+	public Seat createUser(Seat seat) {
+		seatDao.save(seat);
+		return seat;
+	}
+
+	
+	
+
 }

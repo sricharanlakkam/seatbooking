@@ -1,16 +1,11 @@
 package com.seatbooking.seatbooking.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.seatbooking.seatbooking.dao.LocationDAO;
 import com.seatbooking.seatbooking.entity.Location;
 import com.seatbooking.seatbooking.service.LocationService;
 @RestController
@@ -18,24 +13,19 @@ import com.seatbooking.seatbooking.service.LocationService;
 public class LocationController {
 
 	@Autowired
-	LocationService locationService;
+	private LocationService locationService;
 
 	@RequestMapping("/all_loc")
 	@ResponseBody
-	public List<Location> getloc() {
+	public Iterable<Location> getLocation(Location location) {
 
-		return locationService;
+		return locationService.getLocation(location);
 	}
 
-	@PostMapping("/add_loc")
-	public Location home1(Location location) {
-		locationService.save(location);
-		return location;
-	}
 
 	@PutMapping("/modify_loc")
-	public Location update(Location location) {
-		locationService.save(location);
+	public Location updateLocation(Location location) {
+		locationService.updateLocation(location);
 		return location;
 	}
 }

@@ -1,16 +1,17 @@
 package com.seatbooking.seatbooking.entity;
 
+import java.io.Serializable;
 import java.sql.Time;
 import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
 @Entity
-@Table(name="Booking")
-public class Booking {
+
+public class Booking implements Serializable {
+	private static final long serialVersionUID = 1L;
 @Id
 @GeneratedValue(strategy=GenerationType.AUTO)
 	private long bookingNumber;
@@ -24,6 +25,10 @@ public class Booking {
 		this.bookingDate = bookingDate;
 		this.bookingDuration = bookingDuration;
 		this.bookingStatus = bookingStatus;
+	}
+
+	public Booking() {
+
 	}
 
 	public long getBookingNumber() {

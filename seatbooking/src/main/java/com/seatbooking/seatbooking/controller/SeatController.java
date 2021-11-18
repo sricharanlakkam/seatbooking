@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.seatbooking.seatbooking.dao.SeatDAO;
 import com.seatbooking.seatbooking.entity.Seat;
 import com.seatbooking.seatbooking.service.SeatService;
 
@@ -22,19 +21,19 @@ public class SeatController {
 
 	@GetMapping("/getseat")
 	public List<Seat> getAllSeat() {
-		return this.seatService.findAll();
+		return seatService.getAllSeat();
 	}
 
 	@PostMapping("/addseat")
 	public Seat createUser(@RequestBody Seat seat) {
-		return this.seatService.save(seat);
+		return seatService.createUser(seat);
 	}
 
 	@DeleteMapping("/deleteseat")
-	public String delete(@PathVariable("seatNumber") int seatNumber) {
-		Seat p = seatService.getOne(seatNumber);
-		seatService.delete(p);
-		return "Deleted User Details";
+	public void cancelSeat(@PathVariable("seatNumber") int seatNumber) {
+		
+		seatService.cancelSeat(seatNumber);
+		
 	}
 
 }
