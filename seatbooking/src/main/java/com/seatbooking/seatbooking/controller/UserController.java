@@ -1,7 +1,5 @@
 package com.seatbooking.seatbooking.controller;
 
-import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.seatbooking.seatbooking.entity.Booking;
 import com.seatbooking.seatbooking.entity.Location;
-import com.seatbooking.seatbooking.entity.Seat;
 import com.seatbooking.seatbooking.entity.User;
 import com.seatbooking.seatbooking.service.BookingService;
 import com.seatbooking.seatbooking.service.LocationService;
