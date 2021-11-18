@@ -2,7 +2,6 @@ package com.seatbooking.seatbooking.service;
 
 import java.util.List;
 
-import com.seatbooking.seatbooking.entity.Booking;
 import com.seatbooking.seatbooking.entity.Seat;
 
 

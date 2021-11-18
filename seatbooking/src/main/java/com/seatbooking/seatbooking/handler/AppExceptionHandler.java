@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import com.seatbooking.seatbooking.exception.NoLocationException;
 import com.seatbooking.seatbooking.exception.NoSeatException;
 import com.seatbooking.seatbooking.exception.NoUserException;
+import com.seatbooking.seatbooking.exception.UserAlreadyExist;
 
 @RestControllerAdvice
 public class AppExceptionHandler {
@@ -23,8 +24,11 @@ public class AppExceptionHandler {
 	public ResponseEntity<Object> handleNoLocationFound(NoLocationException exception){
 	return new ResponseEntity<>("Location not found", HttpStatus.NOT_FOUND);
 	}
+	@ExceptionHandler(UserAlreadyExist.class)
+	public ResponseEntity<Object> handleUserAlreadyExist(UserAlreadyExist exception){
+	return new ResponseEntity<>("User already exist", HttpStatus.NOT_FOUND);
 
-
+	}
 
 
 	}

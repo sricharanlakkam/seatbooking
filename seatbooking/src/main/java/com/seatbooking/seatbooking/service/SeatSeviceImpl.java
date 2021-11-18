@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.seatbooking.seatbooking.dao.SeatDAO;
-import com.seatbooking.seatbooking.entity.Booking;
 import com.seatbooking.seatbooking.entity.Seat;
 
 @Service

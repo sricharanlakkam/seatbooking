@@ -1,8 +1,5 @@
 package com.seatbooking.seatbooking.service;
 
-import java.util.List;
-
-import com.seatbooking.seatbooking.entity.Seat;
 import com.seatbooking.seatbooking.entity.User;
 
 public interface UserService {
